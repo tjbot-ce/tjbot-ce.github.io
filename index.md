@@ -91,10 +91,10 @@ Next, take a look at TJBot's [recipes](https://github.com/tjbot-ce/tjbot/tree/ma
 
 TJBot comes with these recipes to demonstrate different capabilities:
 
-- **Use Your Voice to Control a Light with Watson** [[instructions](http://www.instructables.com/id/Use-Your-Voice-to-Control-a-Light-With-Watson/)] [[github](https://github.com/ibmtjbot/tjbot/tree/master/recipes/speech_to_text)]
-- **Make Your Robot Respond to Emotions Using Watson** [[instructions](http://www.instructables.com/id/Make-Your-Robot-Respond-to-Emotions-Using-Watson/)] [[github](https://github.com/ibmtjbot/tjbot/tree/master/recipes/sentiment_analysis)]
-- **Build a Talking Robot with Watson** [[instructions](http://www.instructables.com/id/Build-a-Talking-Robot-With-Watson-and-Raspberry-Pi/)] [[github](https://github.com/ibmtjbot/tjbot/tree/master/recipes/conversation)]
-- **Build a Robot Translator** [[github](https://github.com/ibmtjbot/tjbot/tree/master/recipes/translator)]
+- **Use Your Voice to Control a Light with Watson** [[instructions](http://www.instructables.com/id/Use-Your-Voice-to-Control-a-Light-With-Watson/)] [[github](https://github.com/tjbot-ce/tjbot/tree/main/recipes/speech_to_text)]
+- **Make Your Robot Respond to Emotions Using Watson** [[instructions](http://www.instructables.com/id/Make-Your-Robot-Respond-to-Emotions-Using-Watson/)] [[github](https://github.com/tjbot-ce/tjbot/tree/main/recipes/sentiment_analysis)]
+- **Build a Talking Robot with Watson** [[instructions](http://www.instructables.com/id/Build-a-Talking-Robot-With-Watson-and-Raspberry-Pi/)] [[github](https://github.com/tjbot-ce/tjbot/tree/main/recipes/conversation)]
+- **Build a Robot Translator** [[github](https://github.com/tjbot-ce/tjbot/tree/main/recipes/translator)]
 
 After checking out these recipes, we encourage you to take a look at [featured recipes](https://github.com/tjbot-ce/tjbot/tree/main/featured) created by members of the #tjbot community!
 

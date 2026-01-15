@@ -230,12 +230,12 @@ img {
 /* Blockquotes */
 blockquote {
   border-left: 4px solid var(--accent-color);
-  padding-left: var(--spacing-sm);
   margin: var(--spacing-md) 0;
   font-style: italic;
   color: var(--dark-gray);
   background-color: var(--light-gray);
   padding: var(--spacing-sm);
+  padding-left: calc(var(--spacing-sm) + var(--spacing-sm));
   border-radius: 4px;
 }
 
