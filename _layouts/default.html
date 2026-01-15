@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav">
+        <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a>
+        <ul class="nav-links">
+          <li><a href="#build-tjbot">Build</a></li>
+          <li><a href="#bring-tjbot-to-life">Get Started</a></li>
+          <li><a href="#contribute-to-tjbot">Contribute</a></li>
+          <li><a href="https://github.com/tjbot-ce/tjbot" target="_blank">GitHub</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-content">
+    <div class="container">
+      {{ content }}
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2024 TJBot Community Edition | Licensed under <a href="https://github.com/tjbot-ce/tjbot/blob/main/LICENSE">Apache License 2.0</a></p>
+      <p>TJBot was created by <a href="https://github.com/maryamashoori">Maryam Ashoori</a> at IBM Research</p>
+    </div>
+  </footer>
+</body>
+</html>
