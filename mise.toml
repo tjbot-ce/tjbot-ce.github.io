@@ -1,0 +1,53 @@
+[tasks.rbenv-setup]
+description = "Install Ruby with rbenv and ensure bundler is installed"
+run = """
+if ! command -v rbenv >/dev/null 2>&1; then
+	echo "rbenv is required but not installed."
+	echo "Install rbenv first, then rerun: mise run setup"
+	exit 1
+fi
+
+export RBENV_ROOT="${RBENV_ROOT:-$HOME/.rbenv}"
+export PATH="$RBENV_ROOT/bin:$PATH"
+eval "$(rbenv init - bash)"
+
+RUBY_VERSION="${RUBY_VERSION:-3.2.2}"
+rbenv install -s "$RUBY_VERSION"
+rbenv shell "$RUBY_VERSION"
+
+if ! gem list -i bundler >/dev/null 2>&1; then
+	gem install bundler
+fi
+"""
+
+[tasks.setup]
+description = "Install Jekyll dependencies"
+depends = ["rbenv-setup"]
+run = """
+export RBENV_ROOT="${RBENV_ROOT:-$HOME/.rbenv}"
+export PATH="$RBENV_ROOT/bin:$PATH"
+eval "$(rbenv init - bash)"
+
+RUBY_VERSION="${RUBY_VERSION:-3.2.2}"
+rbenv shell "$RUBY_VERSION"
+
+bundle install
+"""
+
+[tasks.serve]
+description = "Run the Jekyll development web server"
+depends = ["setup"]
+run = """
+export RBENV_ROOT="${RBENV_ROOT:-$HOME/.rbenv}"
+export PATH="$RBENV_ROOT/bin:$PATH"
+eval "$(rbenv init - bash)"
+
+RUBY_VERSION="${RUBY_VERSION:-3.2.2}"
+rbenv shell "$RUBY_VERSION"
+
+bundle exec jekyll serve --livereload --host 0.0.0.0 --port ${PORT:-4000}
+"""
+
+[tasks.serve-docs]
+description = "Run a simple static server focused on API docs"
+run = "python3 -m http.server ${PORT:-8000}"
