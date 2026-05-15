@@ -1,2 +1,3 @@
 # tjbot-ce.github.io
-TJBot Community Edition web site
+
+TJBot: Community Edition web site

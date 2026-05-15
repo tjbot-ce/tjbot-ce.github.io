@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,18 +9,21 @@
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet">
 </head>
+
 <body>
   <header class="site-header">
     <div class="container">
       <nav class="site-nav">
         <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a>
         <ul class="nav-links">
-          <li><a href="#build-tjbot">Build</a></li>
-          <li><a href="#bring-tjbot-to-life">Get Started</a></li>
+          <li><a href="#get-started">Get Started</a></li>
           <li><a href="#contribute-to-tjbot">Contribute</a></li>
-          <li><a href="https://github.com/tjbot-ce/tjbot" target="_blank">GitHub</a></li>
+          <li><a href="https://github.com/tjbot-ce/tjbot" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://github.com/tjbot-ce/tjbot/wiki" target="_blank" rel="noopener noreferrer">Wiki</a></li>
         </ul>
       </nav>
     </div>
@@ -33,9 +37,70 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; 2024 TJBot Community Edition | Licensed under <a href="https://github.com/tjbot-ce/tjbot/blob/main/LICENSE">Apache License 2.0</a></p>
-      <p>TJBot was created by <a href="https://github.com/maryamashoori">Maryam Ashoori</a> at IBM Research</p>
+      <p>&copy; 2026-present TJBot: Community Edition | Licensed under <a
+          href="https://github.com/tjbot-ce/tjbot/blob/dev/LICENSE">Apache License 2.0</a></p>
+      <p>Originally created at IBM Research. Community Edition maintained by the TJBot: CE community.</p>
     </div>
   </footer>
+
+  <div class="gallery-lightbox" id="gallery-lightbox" aria-hidden="true">
+    <div class="gallery-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Expanded gallery image">
+      <button type="button" class="gallery-lightbox-close" id="gallery-lightbox-close" aria-label="Close image viewer">&times;</button>
+      <img class="gallery-lightbox-image" id="gallery-lightbox-image" alt="" />
+      <p class="gallery-lightbox-caption" id="gallery-lightbox-caption"></p>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const lightbox = document.getElementById('gallery-lightbox');
+      const lightboxImage = document.getElementById('gallery-lightbox-image');
+      const lightboxCaption = document.getElementById('gallery-lightbox-caption');
+      const closeButton = document.getElementById('gallery-lightbox-close');
+
+      if (!lightbox || !lightboxImage || !lightboxCaption || !closeButton) {
+        return;
+      }
+
+      const closeLightbox = () => {
+        lightbox.classList.remove('is-open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        lightboxImage.removeAttribute('src');
+        lightboxImage.alt = '';
+        lightboxCaption.textContent = '';
+      };
+
+      document.querySelectorAll('[data-gallery-image]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const imageSrc = button.getAttribute('data-gallery-image');
+          const imageAlt = button.getAttribute('data-gallery-alt') || '';
+          if (!imageSrc) {
+            return;
+          }
+
+          lightboxImage.src = imageSrc;
+          lightboxImage.alt = imageAlt;
+          lightboxCaption.textContent = imageAlt;
+          lightbox.classList.add('is-open');
+          lightbox.setAttribute('aria-hidden', 'false');
+        });
+      });
+
+      closeButton.addEventListener('click', closeLightbox);
+
+      lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && lightbox.classList.contains('is-open')) {
+          closeLightbox();
+        }
+      });
+    })();
+  </script>
 </body>
+
 </html>

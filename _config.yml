@@ -1,6 +1,6 @@
 # Site settings
-title: TJBot Community Edition
-description: Build your own DIY open source robot with AI services
+title: "TJBot: Community Edition"
+description: "Open-source DIY robot integrated with AI services"
 baseurl: ""
 url: "https://tjbot-ce.github.io"
 
@@ -21,3 +21,4 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - README.md
+  - mise.toml
