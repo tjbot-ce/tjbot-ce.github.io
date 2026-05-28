@@ -22,3 +22,6 @@ exclude:
   - vendor/ruby/
   - README.md
   - mise.toml
+
+plugins:
+  - jekyll-redirect-from
