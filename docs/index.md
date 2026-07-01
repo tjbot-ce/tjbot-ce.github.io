@@ -9,5 +9,5 @@ Both libraries let you access all of TJBot's capabilities, such as listening, sp
 
 ## API docs
 
-- node-tjbotlib TypeScript library: [node-tjbotlib/3.0.0](node-tjbotlib/3.0.0/)
-- python-tjbotlib Python library: [python-tjbotlib/3.0.0](python-tjbotlib/3.0.0/)
+- node-tjbotlib TypeScript library: [node-tjbotlib/3.0.2](node-tjbotlib/3.0.2/)
+- python-tjbotlib Python library: [python-tjbotlib/3.0.0](python-tjbotlib/3.0.1/)
